@@ -1,0 +1,42 @@
+<!--pages/2048/2048.wxml-->
+<view class="container">
+  <view class="head">
+    <view class="left">
+      <text class="title">2048</text>
+      <text class="start" bindtap="start">新游戏</text>
+      <text class="undo" bindtap="undo" style="background-color: {{able ? '#8f7a66' : '#D3D3D3'}};">撤销</text>
+    </view>
+    <view class="right">
+      <text class="right_txt">BEST</text>
+      <text class="score">{{best_score}}</text>
+    </view>
+    <view class="middle">
+      <text class="middle_txt">SCORE</text>
+      <text class="score">{{score}}</text>
+    </view>
+  </view>
+
+  <view class="game" bindtouchstart="touch_start" bindtouchend="touch_end">
+    <!--格子-->
+    <view class="row" wx:for="{{grid}}" wx:for-item = "row">
+      <view class="cell" wx:for="{{row}}" wx:for-item = "cell">
+        <view class="tile tile-{{cell.val}}" animation = "{{ani}}" hidden="{{!cell.isNew}}">{{cell.val}}</view>
+        <view class="tile tile-{{cell.val}}" hidden="{{cell.isNew}}">{{cell.val}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 游戏结束 -->
+  <view class="over" hidden="{{!isOver}}">
+    <text class="msg">{{msg}}</text>
+  </view>
+
+  <!-- 达到2048 -->
+  <view class="win" hidden="{{!isWin}}">
+    <text class="win_msg">{{msg}}</text>
+    <view class="btn">
+      <text class="restart" bindtap="start">新游戏</text>
+      <text class="continue" bindtap="continue">继续</text>
+    </view>
+  </view>
+</view>

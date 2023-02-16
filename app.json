@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/2048/2048",
+    "pages/ani/ani"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#faf8ee",
+    "navigationBarTitleText": "DMBJ-2048",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
